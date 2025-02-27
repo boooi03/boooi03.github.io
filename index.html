@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tirar Dados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode"> <!-- Añadimos dark-mode aquí -->
+    <div id="modoToggle">
+        <img src="img/sun.png" alt="Modo Claro" id="sol" onclick="toggleModoNoche(true)">
+        <img src="img/moon.png" alt="Modo Noche" id="luna" onclick="toggleModoNoche(false)">
+    </div>
+    <h1>¡Tira los dados!</h1>
+    <button onclick="tirarDados()">Lanzar Dados</button>
+    <button onclick="relanzarDados()" id="relanzarBtn" style="display:none;">Relanzar Dados</button>
+    <p>Turno: <span id="turnosRestantes">0/3</span></p>
+    <label><input type="checkbox" id="ordenarAuto" onchange="actualizarDados()"> Ordenar automáticamente</label>
+    
+    <div>
+        <h2>Dados Activos</h2>
+        <div id="resultado"></div>
+    </div>
+    <div>
+        <h2>Dados Guardados</h2>
+        <div id="guardados"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
