@@ -5,7 +5,7 @@
     <title>Tirar Dados</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dark-mode"> <!-- Añadimos dark-mode aquí -->
+<body class="dark-mode">
     <div id="modoToggle">
         <img src="img/sun.png" alt="Modo Claro" id="sol" onclick="toggleModoNoche(true)">
         <img src="img/moon.png" alt="Modo Noche" id="luna" onclick="toggleModoNoche(false)">
@@ -23,6 +23,7 @@
     <div>
         <h2>Dados Guardados</h2>
         <div id="guardados"></div>
+        <p>Suma: <span id="sumaGuardados">0</span></p> <!-- Nuevo elemento para la suma -->
     </div>
     
     <script src="script.js"></script>

@@ -40,7 +40,7 @@ body.dark-mode button {
 }
 
 .dado.animando {
-    transition: all 0.1s ease; /* Suavizar el cambio de imágenes */
+    transition: all 0.1s ease;
 }
 
 .guardado {
@@ -82,4 +82,9 @@ label {
 
 #modoToggle img:hover {
     opacity: 0.8;
+}
+
+#sumaGuardados {
+    font-weight: bold;
+    font-size: 18px;
 }

@@ -8,7 +8,7 @@ function tirarDados() {
     guardados = [];
     turnos = 1;
     for (let i = 0; i < 5; i++) {
-        resultados.push(Math.floor(Math.random() * 6) + 1); // Generar valores finales inmediatamente
+        resultados.push(Math.floor(Math.random() * 6) + 1);
     }
     document.getElementById("relanzarBtn").style.display = "inline";
     document.getElementById("turnosRestantes").innerText = `${turnos}/3`;
@@ -19,7 +19,7 @@ function relanzarDados() {
     if (turnos < 3) {
         turnos++;
         for (let i = 0; i < resultados.length; i++) {
-            resultados[i] = Math.floor(Math.random() * 6) + 1; // Generar valores finales inmediatamente
+            resultados[i] = Math.floor(Math.random() * 6) + 1;
         }
         document.getElementById("turnosRestantes").innerText = `${turnos}/3`;
         if (turnos === 3) {
@@ -59,6 +59,10 @@ function actualizarDados() {
     }
     document.getElementById("guardados").innerHTML = htmlGuardados;
 
+    // Calcular y mostrar la suma de los dados guardados
+    let suma = guardados.reduce((acc, val) => acc + val, 0);
+    document.getElementById("sumaGuardados").innerText = suma;
+
     document.getElementById("relanzarBtn").style.display = (resultados.length > 0 && turnos < 3) ? "inline" : "none";
 }
 
@@ -69,7 +73,7 @@ function animarDados(dados, esLanzamientoInicial) {
     }
     document.getElementById("resultado").innerHTML = html;
 
-    const intervalo = 100; // Cambiar cada 100ms
+    const intervalo = 100;
     let contador = 0;
     const animacion = setInterval(() => {
         const dadosAnimados = document.querySelectorAll(".animando");
@@ -78,7 +82,7 @@ function animarDados(dados, esLanzamientoInicial) {
             dado.src = `img/${randomNum}.png`;
         });
         contador++;
-        if (contador >= 10) { // 10 iteraciones = 1 segundo
+        if (contador >= 10) {
             clearInterval(animacion);
             mostrarResultadoFinal(dados);
         }
@@ -91,7 +95,7 @@ function mostrarResultadoFinal(dados) {
         html += `<img src="img/${dados[i]}.png" alt="Dado ${dados[i]}" class="dado" onclick="moverDado(${i}, true)">`;
     }
     document.getElementById("resultado").innerHTML = html;
-    actualizarDados(); // Asegurar que se refleje el estado completo
+    actualizarDados();
 }
 
 function toggleModoNoche(modoClaro) {
@@ -108,9 +112,8 @@ function toggleModoNoche(modoClaro) {
     }
 }
 
-// Inicializar el estado al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
-    if (!esModoClaro) { // Modo noche por defecto
+    if (!esModoClaro) {
         document.body.classList.add('dark-mode');
         document.getElementById("sol").style.display = "inline";
         document.getElementById("luna").style.display = "none";
